@@ -1,5 +1,10 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button color="secondary" (click)="delete()" *ngIf="id">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Item</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,6 +17,14 @@
   <ion-item>
     <ion-label position="floating">Cantidad:</ion-label>
     <ion-input type="number" formControlName="quantity"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button color="secondary" (click)="addPhoto()">
+      <ion-icon name="camera-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <img [src]="image"/>
   </ion-item>
   <ion-button expand="full" (click)="save()" [disabled]="formItem.invalid">Guardar</ion-button>
 </ion-content>
